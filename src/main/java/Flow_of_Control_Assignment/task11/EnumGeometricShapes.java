@@ -3,6 +3,7 @@ package Flow_of_Control_Assignment.task11;
 //functionality to print area of shapes of Enum class
 
 import java.awt.*;
+import java.util.Scanner;
 
 enum GeometricShapes{
     Rectangle,
@@ -22,7 +23,31 @@ enum GeometricShapes{
 public class EnumGeometricShapes {
 
     public static void main(String[] args) {
-        GeometricShapes.area(4);
-        GeometricShapes.area(4,5);
+        Scanner scannerObject = new Scanner(System.in);
+
+        System.out.println("Enter 1 to print Area of rectangle");
+        System.out.println("Enter 2 to print Area of Square");
+        int userChoice = scannerObject.nextInt();
+
+        switch(userChoice){
+            case 1:
+                System.out.println("Enter Length of rectangle");
+                int lengthOfRectangle = scannerObject.nextInt();
+                System.out.println("Enter Breadth of rectangle");
+                int breadthOfRectangle = scannerObject.nextInt();
+                GeometricShapes.area(lengthOfRectangle,breadthOfRectangle);
+                break;
+
+            case 2:
+                System.out.println("Enter Length of rectangle");
+                int sideOfSquare = scannerObject.nextInt();
+                GeometricShapes.area(sideOfSquare);
+                break;
+
+            default:
+                System.out.println("Enter valid choice");
+                break;
+        }
+
     }
 }
